@@ -35,6 +35,7 @@ done;
 ```
 
 
+
 ### Second step：
 #### a.prepare target sample list
 ```
@@ -45,6 +46,7 @@ target3.depth
 ......
 ```
 
+
 #### b.prepare reference sample list
 ```
 cat reference.list
@@ -54,11 +56,13 @@ reference3.depth
 .....
 ```
 
+
 #### c.imputation
 ```
 ./phoenix ./target_ori.vcf ./target.list ./reference.list 1024
 zcat target_ori.vcf | sed '1s/.depth//g' | paste ./site.probe - -d "\t" > ./target_ori.vcf
 ```
+
 
 ### Third step, produce vcf file:
 ```
