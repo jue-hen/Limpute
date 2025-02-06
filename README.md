@@ -14,6 +14,8 @@ gdown “https://drive.google.com/file/d/1W7oIAFN8PATjzNbrwG_MejtMtNuEGFT6/view?
 gdown “https://drive.google.com/file/d/1rsGkFGItKth4TVQ74U01_e1xB9iOrkjd/view?usp=drive_link”
 gzip site.probe.gz
 ```
+#####these files contain position information of hg19, which will be used in imputation.
+
 
 ## Usage
 
@@ -36,7 +38,7 @@ done;
 
 
 
-### Second step：
+### Second step, imputation through Limpute：
 #### a.prepare target sample list
 ```
 cat target.list
