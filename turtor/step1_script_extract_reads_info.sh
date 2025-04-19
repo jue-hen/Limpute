@@ -14,5 +14,5 @@
 #done;
 
 
-####To make things easier, we've already uploaded the processed depth files. So, during testing, you can start directly from step3.
+####To make things easier, we've already uploaded the processed depth files. So, during testing, you can start directly from step2.
 
