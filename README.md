@@ -15,54 +15,18 @@ bash step0_script_setup.sh
 
 ## Usage
 
-For example, you have some sequencing reads file,
-```
-sample1.gz 
-sample2.gz
-sample3.gz
-..............
-```
+To generate VCF files from second-generation sequencing data using Limpute, the following three-step pipeline is employed:
 
-### First step, transfer these file to depth file：
-```
-for     i       in      *
-do
-        j=$(basename $i | cut -d “.” -f 1)
-        ./fq2depth site.probe.avx2 ./$j.depth $i
-done;
-```
+Step 1: Extract reference (REF) and alternative (ALT) allele information for SNP sites using pre-defined virtual probes. This step generates highly compressed depth files. The corresponding script can be found at:
+Limpute/turtor/step1_script_extract_reads_info.sh
 
 
-
-### Second step, imputation through Limpute：
-#### a.prepare target sample list
-```
-cat target.list
-target1.depth
-target2.depth
-target3.depth
-......
-```
+Step 2: Perform genotype imputation by using the samples as mutual references to estimate genotype probabilities. This step is executed using the script:
+Limpute/turtor/step2_script_impute.sh
 
 
-#### b.prepare reference sample list
-```
-cat reference.list
-reference1.depth
-reference2.depth
-reference3.depth
-.....
-```
+Step 3: Convert the genotype probability files into sample-specific VCF files. This is accomplished with the script:
+Limpute/turtor/step3_script_transfer.sh
 
 
-#### c.imputation
-```
-./phoenix ./target_ori.vcf ./target.list ./reference.list 1024
-zcat target_ori.vcf | sed '1s/.depth//g' | paste ./site.probe - -d "\t" > ./target_ori.vcf
-```
-
-
-### Third step, produce vcf file:
-```
-python ./vcf_format_transfer.py  ./target_ori.vcf ./target.vcf
-```
+For quick testing and demonstration purposes, preprocessed depth files are included in the test_data directory. These allow researchers to initiate the workflow directly from Step 2, bypassing the read extraction process.
