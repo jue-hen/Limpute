@@ -1,5 +1,4 @@
-# Limpute
-A Novel Efficient Algorithm for Common Variants Genotyping from Low-Coverage Sequencing Data
+# Limpute —— A Novel Efficient Algorithm for Common Variants Genotyping from Low-Coverage Sequencing Data
 
 
 ## Installation
@@ -7,14 +6,10 @@ A Novel Efficient Algorithm for Common Variants Genotyping from Low-Coverage Seq
 Prerequisites: cget, cmake.
 git clone https://github.com/jue-hen/Limpute
 
-###Download Large File
-pip install gdown
-gdown “https://drive.google.com/file/d/1W7oIAFN8PATjzNbrwG_MejtMtNuEGFT6/view?usp=drive_link”
-
-gdown “https://drive.google.com/file/d/1rsGkFGItKth4TVQ74U01_e1xB9iOrkjd/view?usp=drive_link”
-gzip site.probe.gz
+cd Limpute/turtor
+bash step0_script_setup.sh
 ```
-#####these files contain position information of hg19, which will be used in imputation.
+
 
 
 ## Usage
